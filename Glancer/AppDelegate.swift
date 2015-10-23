@@ -170,7 +170,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let Day_Num = Monday.getDayOfWeek_fromString(currentDateTime)
                     
                     var index : Double = 0;
-                    index = -Double(Day_Num)
+                    index = -Double(Day_Num);
                     
                     
                     /*
