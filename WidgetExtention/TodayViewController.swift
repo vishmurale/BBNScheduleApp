@@ -305,6 +305,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                     }
                     print("")
                     print("Finding Widget Date ...")
+                    
+                    
                     var End_Times = [Int]()
                     if(self.Schedule["EndTimes"] != nil){
                         End_Times = self.Schedule["EndTimes"] as! Array<Int>

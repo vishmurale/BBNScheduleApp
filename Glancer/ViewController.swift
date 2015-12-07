@@ -48,10 +48,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         super.viewDidLoad()
         let defaults = NSUserDefaults(suiteName:"group.vishnu.squad.widget")
-
-        
-        
-        //Change here 
+        //Change here
         
         
         //Make sure to add all the Ui element's values (string) to "ArrayOfText"
@@ -164,8 +161,151 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-        
     
+    func find_Minutes(hour_before : Int, hour_after : Int)->Int{
+        
+        var HOUR_AFTER_MINUS_FIVE = hour_after
+        
+        if(hour_after%100 < 5){
+            
+            HOUR_AFTER_MINUS_FIVE = hour_after - 5 - 40
+            
+        }
+        else{
+            HOUR_AFTER_MINUS_FIVE = hour_after - 5
+        }
+        
+        
+        
+        let num_hours_less = Int(hour_before/100)
+        let num_hours_more = Int(HOUR_AFTER_MINUS_FIVE/100)
+        
+        let diff_hours = num_hours_more-num_hours_less
+        
+        print("Diff in hours" + String(diff_hours))
+        
+        let diff_minutes = HOUR_AFTER_MINUS_FIVE%100 - hour_before%100
+        
+        print("Diff in minutes" + String(diff_minutes))
+        
+        
+        return diff_hours*60 + diff_minutes;
+        
+        
+    }
+    
+    
+    
+    func CurrentDayandStuff() -> (current_block : String, minutesRemaining : Int){
+        
+        
+        
+        let currentDateTime = appDelegate.Days[0].getDate_AsString()
+        let Day_Num = appDelegate.Days[0].getDayOfWeek_fromString(currentDateTime)
+        var Widget_Block = appDelegate.Widget_Block;
+        var Time_Block = appDelegate.Time_Block;
+        var End_Times = appDelegate.End_Times;
+        var Curr_block = " ";
+        
+        var minutes_until_nextblock = 0;
+        
+        for i in Array((0...Widget_Block[Day_Num].count-1).reverse()){
+            
+            
+            
+            let dateAfter = Time_Block[Day_Num][i]
+            let CurrTime = appDelegate.Days[0].NSDateToStringWidget(NSDate())
+            
+            //      CurrTime = "-09-33";
+            
+            var End_Time_String = ""
+            if(i+1 <= Widget_Block[Day_Num].count-1){
+                End_Time_String = Time_Block[Day_Num][i+1]
+            }
+            
+            print("Date After : " + dateAfter)
+            print("Current Date : " + CurrTime)
+            
+            var hour4 = self.substring(dateAfter,StartIndex: 1,EndIndex: 3)
+            hour4 = hour4 + self.substring(dateAfter,StartIndex: 4,EndIndex: 6)
+            
+            var hour2 = self.substring(CurrTime,StartIndex: 1,EndIndex: 3)
+            hour2 = hour2 + self.substring(CurrTime,StartIndex: 4,EndIndex: 6)
+            
+            var end_time = self.substring(End_Time_String,StartIndex: 1,EndIndex: 3)
+            end_time = end_time + self.substring(End_Time_String,StartIndex: 4,EndIndex: 6)
+            
+            
+            let hour_one = Int(hour4)
+            let hour_two = Int(hour2)
+            let hour_after = Int(end_time)
+            
+            
+            print("Blcok  Date  hour : ")
+            print(hour_one, terminator: "")
+            print("Current Date hour: ")
+            print(hour_two, terminator: "")
+            print("After Date  hour : ")
+            print(hour_after)
+            
+            
+            
+            if(i == Widget_Block[Day_Num].count-1 && hour_two >= hour_one){
+                
+                let EndTime = End_Times[Day_Num]
+                if(hour_two! - EndTime < 0){
+                    
+                    
+                    minutes_until_nextblock = self.find_Minutes(hour_two!, hour_after: (EndTime))
+                    
+                    print("Miuntes until next blok " + String(minutes_until_nextblock))
+                    if(minutes_until_nextblock > 0){
+                        Curr_block = Widget_Block[Day_Num][i]
+                    }
+                    else{
+                        Curr_block = "GETTOCLASS"
+                    }
+                }
+                else{
+                    print("After School")
+                    Curr_block = "NOCLASSNOW"
+                }
+                
+                break;
+                
+            }
+            
+            
+            if(hour_two >= hour_one){
+                
+                
+                minutes_until_nextblock = self.find_Minutes(hour_two!, hour_after: (hour_after!))
+                
+                print("Miuntes unitl next block " + String(minutes_until_nextblock))
+                
+                if(minutes_until_nextblock > 0){
+                    
+                    Curr_block = Widget_Block[Day_Num][i]
+                }
+                else{
+                    Curr_block = "GETTOCLASS"
+                }
+                
+                break;
+            }
+            
+        }
+        
+        return (Curr_block,minutes_until_nextblock);
+  
+    
+    
+    
+    }
+
+
+
+
     func updateUI(){
         
         
@@ -175,6 +315,29 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let Day_Num = appDelegate.Days[0].getDayOfWeek_fromString(currentDateTime)
         
             if(Day_Num < 5){ //this checks that the current day is a weekday
+                
+             
+            //get's current day's time and block and minutes left
+                
+               
+                
+                
+                let CurrentValues = CurrentDayandStuff();
+                
+                var CurrentBlock = CurrentValues.current_block;
+                var minutesRemaining = CurrentValues.minutesRemaining;
+                let user_data_for_block = appDelegate.Days[Day_Num].messages_forBlock[CurrentBlock];
+                
+                print("Current Block " + user_data_for_block! + "  minutes remaining " + String(minutesRemaining)); //if you run this in the simulator you can see the output
+                
+                
+                
+                
+                
+                
+                
+            ///get data for all the blocks of the day
+                
             
             print("current day");
             print(Day_Num);
@@ -205,13 +368,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
   
                 print(final_time + " : " + block_name + " => " + user_data_for_block!); //if you run this in the simulator you can see the output
 
-    
+                
+            
                 
             }
                 
             }else{
                 
-                
+                print("WEEKEND BABY"); 
                 //this means the day is a weekend so we won't display a UI schedule
                 
                 

@@ -20,16 +20,18 @@
 		5B4406E71B2B7763007B38A8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD288341B03D23E007A0472 /* Security.framework */; };
 		5B4406E81B2B7769007B38A8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B55DC2E1B27B29700D55EB9 /* StoreKit.framework */; };
 		5B4406E91B2B7772007B38A8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD288381B03D24B007A0472 /* SystemConfiguration.framework */; };
+		5B4A65771C14D54E001FE2B2 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4A65761C14D54E001FE2B2 /* HomeTableViewController.swift */; };
+		5B4A65791C14FD34001FE2B2 /* BlockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4A65781C14FD34001FE2B2 /* BlockTableViewCell.swift */; };
 		5B55DC2F1B27B29700D55EB9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B55DC2E1B27B29700D55EB9 /* StoreKit.framework */; };
 		5B8DDE121B27C7E1006EE5C2 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC261811B0EA7D700AEBAC1 /* NotificationCenter.framework */; };
 		5B8DDE171B27C7E1006EE5C2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8DDE161B27C7E1006EE5C2 /* TodayViewController.swift */; };
 		5B8DDE191B27C7E1006EE5C2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B8DDE181B27C7E1006EE5C2 /* MainInterface.storyboard */; };
 		5B8DDE1C1B27C7E1006EE5C2 /* WidgetExtention.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5B8DDE111B27C7E1006EE5C2 /* WidgetExtention.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5B8DDE201B27C864006EE5C2 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC261951B0EAEC500AEBAC1 /* Day.swift */; };
-		5B93E4781BE26A1300D0D101 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B93E4771BE26A1300D0D101 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
-		5B93E4791BE26A1300D0D101 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B93E4771BE26A1300D0D101 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
-		5B93E47B1BE26A6F00D0D101 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B93E47A1BE26A6F00D0D101 /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
-		5B93E47C1BE26A6F00D0D101 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B93E47A1BE26A6F00D0D101 /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
+		5B93E4781BE26A1300D0D101 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B93E4771BE26A1300D0D101 /* Bolts.framework */; };
+		5B93E4791BE26A1300D0D101 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B93E4771BE26A1300D0D101 /* Bolts.framework */; };
+		5B93E47B1BE26A6F00D0D101 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B93E47A1BE26A6F00D0D101 /* Parse.framework */; };
+		5B93E47C1BE26A6F00D0D101 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B93E47A1BE26A6F00D0D101 /* Parse.framework */; };
 		5BC261961B0EAEC500AEBAC1 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC261951B0EAEC500AEBAC1 /* Day.swift */; };
 		5BD285DD1B03CF29007A0472 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD285DC1B03CF29007A0472 /* AppDelegate.swift */; };
 		5BD285DF1B03CF29007A0472 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD285DE1B03CF29007A0472 /* ViewController.swift */; };
@@ -84,6 +86,8 @@
 		5B22DE9D1BE2692E00215F11 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		5B4406D41B291708007B38A8 /* WidgetExtention.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WidgetExtention.entitlements; sourceTree = "<group>"; };
 		5B4406EC1B2B7894007B38A8 /* WidgetExtention-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "WidgetExtention-Bridging-Header.h"; path = "WidgetExtention/WidgetExtention-Bridging-Header.h"; sourceTree = "<group>"; };
+		5B4A65761C14D54E001FE2B2 /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		5B4A65781C14FD34001FE2B2 /* BlockTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockTableViewCell.swift; sourceTree = "<group>"; };
 		5B55DC2C1B27B21500D55EB9 /* Glancer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Glancer.entitlements; sourceTree = "<group>"; };
 		5B55DC2E1B27B29700D55EB9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		5B8DDE111B27C7E1006EE5C2 /* WidgetExtention.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtention.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -237,12 +241,14 @@
 				5B55DC2C1B27B21500D55EB9 /* Glancer.entitlements */,
 				5BD285DC1B03CF29007A0472 /* AppDelegate.swift */,
 				5BD285DE1B03CF29007A0472 /* ViewController.swift */,
+				5B4A65781C14FD34001FE2B2 /* BlockTableViewCell.swift */,
 				5BD285E01B03CF29007A0472 /* Main.storyboard */,
 				5BD285E31B03CF29007A0472 /* Images.xcassets */,
 				5BD285E51B03CF29007A0472 /* LaunchScreen.xib */,
 				5BD285DA1B03CF29007A0472 /* Supporting Files */,
 				5BD2883E1B03D2BD007A0472 /* PushNotificationController.swift */,
 				5BC261951B0EAEC500AEBAC1 /* Day.swift */,
+				5B4A65761C14D54E001FE2B2 /* HomeTableViewController.swift */,
 			);
 			path = Glancer;
 			sourceTree = "<group>";
@@ -436,7 +442,9 @@
 				5BD285DF1B03CF29007A0472 /* ViewController.swift in Sources */,
 				5BD2883F1B03D2BD007A0472 /* PushNotificationController.swift in Sources */,
 				5BD285DD1B03CF29007A0472 /* AppDelegate.swift in Sources */,
+				5B4A65791C14FD34001FE2B2 /* BlockTableViewCell.swift in Sources */,
 				5BC261961B0EAEC500AEBAC1 /* Day.swift in Sources */,
+				5B4A65771C14D54E001FE2B2 /* HomeTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

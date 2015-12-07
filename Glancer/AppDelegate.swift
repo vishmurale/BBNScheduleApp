@@ -17,10 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let BlockOrder = ["A","B","C","D","E","F","G"]
     
+    var End_Times = [Int]();
     var Days = [Day]()
     var Id : String = ""
     var MondayExists = false
     var Timer = NSTimer();
+    var Widget_Block = [Array<String>]();
+    var Time_Block = [Array<String>]();
     var pushNotificationController:PushNotificationController?
     var Schedule = PFObject(className:"Schedule")
     
@@ -99,12 +102,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                     
                    
-                    var Widget_Block = [Array<String>]()
-                    var Time_Block = [Array<String>]()
+                   // var Widget_Block = [Array<String>]()
+                    //var Time_Block = [Array<String>]()
           
                     
-                    Widget_Block.removeAll()
-                    Time_Block.removeAll()
+                    self.Widget_Block.removeAll()
+                    self.Time_Block.removeAll()
                     
                     print("Retrived Information Successful")
                     self.Schedule = SchedObj!
@@ -118,40 +121,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     if(self.Schedule["MondayBlock"] != nil && self.Schedule["MondayTime"] != nil){
                         let bO: Array<String> = self.Schedule["MondayBlock"] as! Array<String>
                         let t: Array<String> = self.Schedule["MondayTime"] as! Array<String>
-                        Widget_Block.append(bO)
-                        Time_Block.append(t)
+                        self.Widget_Block.append(bO)
+                        self.Time_Block.append(t)
                         Monday.refreshDay(bO, times: t)
                     }
                     
                     if(self.Schedule["TuesdayBlock"] != nil && self.Schedule["TuesdayTime"] != nil){
                         let bO: Array<String> = self.Schedule["TuesdayBlock"] as! Array<String>
                         let t: Array<String> = self.Schedule["TuesdayTime"] as! Array<String>
-                        Widget_Block.append(bO)
-                        Time_Block.append(t)
+                        self.Widget_Block.append(bO)
+                        self.Time_Block.append(t)
                         Tuesday.refreshDay(bO, times: t)
                     }
                     
                     if(self.Schedule["WednesdayBlock"] != nil && self.Schedule["WednesdayTime"] != nil){
                         let bO: Array<String> = self.Schedule["WednesdayBlock"] as! Array<String>
                         let t: Array<String> = self.Schedule["WednesdayTime"] as! Array<String>
-                        Widget_Block.append(bO)
-                        Time_Block.append(t)
+                        self.Widget_Block.append(bO)
+                        self.Time_Block.append(t)
                         Wednesday.refreshDay(bO, times: t)
                     }
                     
                     if(self.Schedule["ThursdayBlock"] != nil && self.Schedule["ThursdayTime"] != nil){
                         let bO: Array<String> = self.Schedule["ThursdayBlock"] as! Array<String>
                         let t: Array<String> = self.Schedule["ThursdayTime"] as! Array<String>
-                        Widget_Block.append(bO)
-                        Time_Block.append(t)
+                        self.Widget_Block.append(bO)
+                        self.Time_Block.append(t)
                         Thursday.refreshDay(bO, times: t)
                     }
                     
                     if(self.Schedule["FridayBlock"] != nil && self.Schedule["FridayTime"] != nil){
                         let bO: Array<String> = self.Schedule["FridayBlock"] as! Array<String>
                         let t: Array<String> = self.Schedule["FridayTime"] as! Array<String>
-                        Widget_Block.append(bO)
-                        Time_Block.append(t)
+                        self.Widget_Block.append(bO)
+                        self.Time_Block.append(t)
                         Friday.refreshDay(bO, times: t)
                     }
                     
@@ -161,7 +164,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     self.Days.append(Thursday)
                     self.Days.append(Friday)
                  
-                 
+                    
+                    
+                    
+                    if(self.Schedule["EndTimes"] != nil){
+                        self.End_Times = self.Schedule["EndTimes"] as! Array<Int>
+                    }
                     
                     
                     
@@ -414,10 +422,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
     }
-
     
+//goals
 
-    
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
         
         let x = update();
